@@ -37,6 +37,6 @@ class IndexPage < Page
     end
 
     def site_language
-      params[:language] || I18n.code.to_s
+      params[:language] || I18n.locale.to_s
     end
 end
