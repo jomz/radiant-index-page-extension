@@ -26,17 +26,13 @@ class IndexPage < Page
 
     def redirect_url(page)
       if is_site_language_dependant?
-        site_language + page.url
+        "/" + I18n.locale.to_s + page.url
       else
-        page.url
+        "/" + page.url
       end
     end
 
     def is_site_language_dependant?
       defined?(SiteLanguage) && SiteLanguage.count > 0
-    end
-
-    def site_language
-      params[:language] || I18n.locale.to_s
     end
 end
