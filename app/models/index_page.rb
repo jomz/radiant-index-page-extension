@@ -28,7 +28,7 @@ class IndexPage < Page
       if is_site_language_dependant?
         "/" + I18n.locale.to_s + page.url
       else
-        "/" + page.url
+        page.url
       end
     end
 
