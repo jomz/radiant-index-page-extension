@@ -13,6 +13,10 @@ module IndexPageMethods
     end
   end
 
+  def response_code
+    response.status
+  end
+  
   private
 
     def include_index?
