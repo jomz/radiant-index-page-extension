@@ -9,13 +9,9 @@ class IndexPage < Page
       if include_index?
         page.render
       else
-        response.redirect redirect_url(page), 302
+        response.redirect page.url, 302
       end
     end
-  end
-
-  def response_code
-    response.status
   end
 
   private
@@ -24,15 +20,4 @@ class IndexPage < Page
       Radiant::Config["index.page"] && Radiant::Config["index.page"] == 'include'
     end
 
-    def redirect_url(page)
-      if is_site_language_dependant?
-        "/" + I18n.locale.to_s + page.url
-      else
-        page.url
-      end
-    end
-
-    def is_site_language_dependant?
-      defined?(SiteLanguage) && SiteLanguage.count > 0
-    end
 end
