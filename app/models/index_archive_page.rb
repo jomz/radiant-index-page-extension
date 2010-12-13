@@ -1,6 +1,6 @@
 class IndexArchivePage < ArchivePage
   def render
-    first_published_child = children.find_by_status_id("100", :order => 'published_at DESC')
+    first_published_child = children.find_by_status_id("100", :order => 'published_at DESC', :conditions => ["published_at <= ?", Time.current])
     super if first_published_child.nil?
     if include_index?
       first_published_child.render
