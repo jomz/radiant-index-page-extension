@@ -1,4 +1,4 @@
-module IndexPageMethods
+module RadiantIndexPageExtension::IndexPageMethods
   def response_code
     response.status
   end
