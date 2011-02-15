@@ -7,7 +7,7 @@ class IndexPageExtension < Radiant::Extension
   url "http://github.com/jomz/radiant-index-page-extension"
   
   def activate
-    IndexPage.send :include, RadiantIndexPageExtension::IndexPageMethods
-    IndexArchivePage.send :include, RadiantIndexPageExtension::IndexPageMethods
+    IndexPage.send :include, IndexPageMethods
+    IndexArchivePage.send :include, IndexPageMethods
   end
 end
